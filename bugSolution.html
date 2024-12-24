@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    <p>This is some text.</p>
+  </div>
+
+  <script>
+    // Correct way to set innerHTML using string conversion
+    const myObject = { text: "This will work correctly." };
+    document.getElementById("myDiv").innerHTML = myObject.text; 
+    //Or using DOM manipulation for better security and maintainability
+    const newParagraph = document.createElement("p");
+    const textNode = document.createTextNode(myObject.text);
+    newParagraph.appendChild(textNode);
+    document.getElementById("myDiv").appendChild(newParagraph);
+  </script>
+</body>
+</html>
